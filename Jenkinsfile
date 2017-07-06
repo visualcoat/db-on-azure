@@ -4,6 +4,8 @@ node {
   }
 
   def azureUtil = load './deployment/jenkins/azureutil.groovy'
+ azureUtil.chris()
+  
   def branchName = scm.branches[0].name.split('/').last()
   def targetEnv = (branchName in ['test','prod']) ? branchName : 'dev'
 
