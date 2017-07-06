@@ -37,6 +37,8 @@ def notifyBuild(String buildStatus = 'STARTED') {
     subject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]: ${release_folder}'"
     summary = "${subject} (${env.BUILD_URL})"
 
+println("DEBUG: BuildStatus-" + buildStatus)
+    
     // Override default values based on build status
     if (buildStatus == 'STARTED') {
         color = 'YELLOW'
@@ -68,6 +70,8 @@ def redeployApi(String environment, String serviceName) {
 
     script = "aws cloudformation list-stack-resources --stack-name ${stackName}"
 
+println("DEBUG: Script-" + script)
+    
     //Retrieve list of resources for current stack from AWS
     describeResources = sh (
             script: "${script}",
@@ -103,7 +107,9 @@ boolean CFTHasChanges(String environment, String serviceName, String releaseFold
 
     //Versioned Parameter File
     paramsJson = "${serviceName}_${releaseFolder}_params.json"
-
+    
+println("DEBUG: paramsJson-" + paramsJson)
+    
     //Define CLI Commands, since service stack names have 'service' identifier in name
     stackName = (serviceName == 'serviceHealth' || serviceName == 'managementConsole')?
             "${environment}-${serviceName}-API-Stack" : "${environment}-${serviceName}-service-API-Stack"
