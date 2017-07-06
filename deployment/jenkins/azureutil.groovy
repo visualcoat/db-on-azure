@@ -10,6 +10,10 @@ def jsonParse(def json) {
     new groovy.json.JsonSlurperClassic().parseText(json)
 }
 
+def chris{
+ sh 'whoami'   
+}
+
 def prepareEnv(String targetEnv) {
     /**
      * Parse config.json
