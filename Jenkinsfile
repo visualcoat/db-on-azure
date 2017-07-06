@@ -48,8 +48,8 @@ timestamps {
 
       stage("Pull Github Repository") {
         stageName = "Pull Github Repository"
-        println("CDUSZYNSKI: Repository-" + github_repository)
-        println("CDUSZYNSKI: Branch-" + github_branch)
+        println("DEBUG: Repository-" + github_repository)
+        println("DEBUG: Branch-" + github_branch)
         git url: "${github_repository}", branch: "${github_branch}", credentialsId: "teradata-jenkins"
       }
 
@@ -99,6 +99,9 @@ timestamps {
       }
 
       parallel zip: {
+        
+        println("DEBUG: ZIP-in loop")
+        
         stage("ZIP ${service_name} Service Lambda Functions") {
           stageName = "ZIP ${service_name} Service Lambda Functions"
           tools.zipLambda("api/dist", "${service_name}Service")
