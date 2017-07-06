@@ -48,6 +48,8 @@ timestamps {
 
       stage("Pull Github Repository") {
         stageName = "Pull Github Repository"
+        println("CDUSZYNSKI: Repository-" + github_repository)
+        println("CDUSZYNSKI: Branch-" + github_branch)
         git url: "${github_repository}", branch: "${github_branch}", credentialsId: "teradata-jenkins"
       }
 
