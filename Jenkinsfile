@@ -39,7 +39,8 @@ npm_test = "sudo npm run test"
 
 
 timestamps {
-  node("New_Slave"){
+  //node("New_Slave"){
+    node("master"){
     //Import Build Tools
     def tools = load "/opt/tools.groovy"
 
