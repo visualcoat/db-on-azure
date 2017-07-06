@@ -1,5 +1,5 @@
- def azureUtil = load './deployment/jenkins/azureutil.groovy'
- azureUtil.chris()
+// def azureUtil = load './deployment/jenkins/azureutil.groovy'
+// azureUtil.chris()
 
 /* Setup Variables */
 
