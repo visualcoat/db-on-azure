@@ -10,7 +10,8 @@ def jsonParse(def json) {
     new groovy.json.JsonSlurperClassic().parseText(json)
 }
 
-def chris{
+def chris()
+{
  sh 'whoami'   
 }
 
