@@ -13,6 +13,7 @@ def jsonParse(def json) {
 def chris()
 {
  sh 'whoami'   
+ sh 'AZ --Version'
 }
 
 def prepareEnv(String targetEnv) {
